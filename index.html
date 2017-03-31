@@ -1,0 +1,71 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Server List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div id="app" style="padding-top: 10px">
+
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div v-if="config" class="well" >
+            <p>Liste URL: <input type="text" v-model="settings.listurl" placeholder="Server Library" /></p>
+            <p>Key: {{settings.keyfile}}</p>
+            <p><input id="keyfile" type="file" placeholder="Key"/></p>
+          </div>
+          <div v-if="successmsg.length" class="alert alert-success alert-dismissable" v-on:click="dismiss('successmsg')" style="cursor:pointer">
+            {{successmsg}}
+          </div>
+          <div v-if="errormsg.length" class="alert alert-danger alert-dismissable" v-on:click="dismiss('errormsg')" style="cursor:pointer">
+            {{errormsg}}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-9">
+          <input v-model="searchServer" class="form-control" placeholder="Suchen...">
+        </div>
+        <div class="col-xs-3 text-right">
+          <a v-if="!config" class="btn btn-primary btn-sm" v-on:click="toggleConfig"><i class="fa fa-cog" aria-hidden="true"></i></a>
+          <a v-if="config" class="btn btn-success btn-sm" v-on:click="saveConfig"><i class="fa fa-check" aria-hidden="true"></i></a>
+          <a v-if="config" class="btn btn-danger btn-sm" v-on:click="toggleConfig"><i class="fa fa-times" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <td>Name</td>
+          <td>Beschreibung</td>
+          <td></td>
+          <td><a class="btn btn-default btn-sm" v-on:click="updateServerList"><i class="fa fa-repeat" aria-hidden="true"></i></a></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="server in servers | filterBy searchServer">
+          <td>{{server.name}}</td>
+          <td>{{server.desc}}</td>
+          <td><a href="#" v-on:click="load('nautilus', server)" class="btn btn-default"> <i class="fa fa-folder-open-o" aria-hidden="true"></i> </a></td>
+          <td><a href="#" v-on:click="load('shell', server)" class="btn btn-default"> <i class="fa fa-terminal" aria-hidden="true"></i> </a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+<script src="vendor/vue.min.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<script src="functions.js"></script>
+<script src="menu.js"></script>
+<script src="index.js"></script>
+<script>
+
+
+</script>
+
+</html>

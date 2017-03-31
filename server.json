@@ -1,0 +1,35 @@
+[
+	{ 
+		"url":"h08-vs02.jarmedia.de",
+		"type" : "ssh",
+		"user" : "root",
+		"port" : "8722",
+		"name" : "H08-VS02",
+		"desc" : "Entwicklungsungebung"
+	},
+	{ 
+		"url":"h09-vs02.jarmedia.de",
+		"type" : "ssh",
+		"user" : "root",
+		"port" : "8722",
+		"name" : "H09-VS02",
+		"desc" : "Kundeservers"
+	},
+	{ 
+		"url":"h09-vs01.jarmedia.de",
+		"type" : "ssh",
+		"user" : "root",
+		"port" : "8722",
+		"name" : "H09-VS02",
+		"desc" : "Rheinland-Relations",
+		"tags" : "rrpr rr-pr"
+	},
+	{
+                "url":"h10-vs01.jarmedia.de",
+		"user" : "root",
+		"type" : "8722",
+                "port" : "8722",
+                "name" : "H10-VS01",
+                "desc" : "Federstein - Renault Server"
+        }
+]
