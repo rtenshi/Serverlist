@@ -1,1 +1,10 @@
-[]
+[
+	{ 
+		"url":"server.com",
+		"type" : "ssh",
+		"user" : "root",
+		"port" : "22",
+		"name" : "",
+		"desc" : ""
+	},
+]
